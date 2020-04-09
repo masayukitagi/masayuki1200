@@ -40,6 +40,8 @@ export default {
 </script>
 
 <style>
-#app {
-}
+@import url(//fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+</style>
+
+<style>
 </style>

@@ -1,14 +1,12 @@
 
 <template>
   <div>
-    <div class="Skill">
-      <h1 class="skill_set">Skill set</h1>
-      <div class="sentences_parent"> 
-        <p1 class="skill_sentences">自分の"好き"ができ、自信を持て、人に提供し、人を笑顔にできるクリエイターを目指し、好奇心の向くことにチャレンジを惜しまない。そのために現在は、自分が大学時代に興味を持ったIT技術を0から勉強しています。</p1>
-      </div>
-    </div>
-    <div>
-      <img class="my_icon" alt="Masayuki_Tagi" src="">
+    <div class="skillSection">
+      <div class="skillTitle">Skill set</div>
+      <div class="skillExplain">自分の"好き"ができ、自信を持て、人に提供し、人を笑顔にできるクリエイターを目指し、好奇心の向くことにチャレンジを惜しまない。そのために現在は、自分が大学時代に興味を持ったIT技術を0から勉強しています。</div>
+      <a class="gitHubLink" href="https://github.com/masayukitagi">
+        <label class="gitHubLabel" for="name1">GitHub : https://github.com/masayukitagi</label>
+      </a>
     </div>
   </div>
 </template>
@@ -24,24 +22,47 @@
 
 
 <style scoped>
-.Skill{
+.skillSection{
+  text-align: center;
   margin: 20px auto;
-  height: 170px;
-  width: 240px;
+  background-color: #FFFFFF;
+  width: 100%;
+  height: auto;
 }
-.skill_set{
-  text-align: center; 
-  white-space: pre-wrap;
-  font-size: 20px;
-  padding: 20px 0px 10px 0px;
+.skillTitle{
+  color: #20879F;
+  font-family: "Noto Sans Japanese";
+  font-size: 18pt;
+  font-weight: bold;
+  padding: 10pt 0pt 6pt 0pt;
+  text-shadow: 0.5px 0.75px 1px #808080; 
 }
-.sentences_parent{
-  margin: 0 auto;
-  width: 200px;
+.skillExplain{
+  margin: 10px auto;
+  color: #707070;
+  font-family: "Noto Sans Japanese";
+  line-height: 1.5em;
+  font-size: 12pt;
+  font-weight: bold;
+  width: 80%;
 }
-.skill_sentences{
-  white-space: pre-wrap;
-  font-size: 7px;
-  padding-top: 10px;
+.gitHubLabel{
+  margin: 10px auto;
+  color: #20879F;
+  font-family: "Noto Sans Japanese";
+  font-size: 12pt;
 }
+.gitHubLink{
+/* rink */
+}
+.skillCategories{
+
+}
+.skillList{
+
+}
+.skillGraph{
+
+}
+
 </style>

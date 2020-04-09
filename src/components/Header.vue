@@ -1,30 +1,57 @@
 <template>
-  <div class="header">
-    <img v-on:click="menu" class="menu_icon" alt="menu" src="@/assets/menu_icon.png">
+  <div id="headerSection">
+    <button @click="toggle" class="btn_btn-success">
+      <img class="headerButton" alt="menu" src="@/assets/menu_icon.png">
+    </button>
+    <Drawer @close="toggle" align="left" :closeable="true">
+      <div v-if="open">content here</div>
+    </Drawer>
   </div>
 </template>
 
+<!---->
+  
 <script>
-  export default {
-    methods: {
-      menu: function(){
-        window.alert('ここにメニューが開きます')
-      }
+import Drawer from "vue-simple-drawer";
+  
+export default {
+  name: "App",
+  components: {
+    Drawer
+  },
+  data() {
+    return {
+      open: false
+    }
+  },
+  methods: {
+    toggle() {
+      this.open = !this.open
     }
   }
+};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<!---->
 
-.header{
-  background-color: #f5f5f5;
-  height: 80px;
+<style lang="scss">
+@import "~bootstrap/scss/bootstrap-reboot",
+"~bootstrap/scss/buttons";
+</style>
+
+<style>
+#headerSection{
+  background-color: #F3F3F3;
+  width: 100%;
+  height: auto;
+}
+.headerButton{
+  height: 40pt;
+  width: 40pt;
 }
 
-.menu_icon{
-  width: 60px;
-  height: 60px;
-  margin: 10px 0px 10px 20px;
+.btn_btn-success{
+  background-color: #F3F3F3;
+  
 }
 </style>
