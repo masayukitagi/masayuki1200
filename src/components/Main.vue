@@ -1,8 +1,10 @@
 <template>
-  <div class="main">
-    <h1 class="my_name">M.Tagi</h1>
-    <h2 class="my_employer">Sattleconsulting</h2>
-    <img class="my_icon" alt="Masayuki_Tagi" src="@/assets/my_icon.jpg">
+  <div class="mainSection">
+    <div class="userName">M.Tagi
+    </div>
+    <div class="companyName">Sattleconsulting
+    </div>
+    <img class="profilePicture" alt="Masayuki_Tagi" src="@/assets/my_icon.jpg">
   </div>
 </template>
 
@@ -17,27 +19,37 @@
 
 
 <style scoped>
-.main{
-  background-color: #87ceeb; 
-  height: 600px;
+.mainSection{
+  background: linear-gradient(0deg, #06C1E6, #80E1F7);
+  width: 100%;
+  height: auto;
   text-align: center;
+  margin: 0pt 0pt 0pt 0pt;
 }
-.my_name{
-  border-bottom: solid 1px	rgb(255, 255, 255);
-  color: rgb(255, 255, 255);
-  font-size: 60px;
-  padding: 50px 0px 20px 0px;
-  border-bottom:  black;
+.userName{
+  margin: 0pt auto;
+  border-bottom: solid 1px	#FFFFFF;
+  color: #FFFFFF;
+  font-family: "Noto Sans Japanese";
+  width: 130px;
+  font-size: 18pt;
+  font-weight: bold;
+  padding: 10pt 0pt 6pt 0pt;
+  text-shadow: 0.5px 0.75px 1px #808080; 
 }
-.my_employer{
-  color: rgb(255, 255, 255);
-  font-size: 50px;
-  padding-top: 20px;
+.companyName{
+  
+  color: #FFFFFF;
+  font-family: "Noto Sans Japanese";
+  font-size: 18pt;
+  font-weight: bold;
+  margin: 6pt 0pt 10pt 0pt;
+  text-shadow: 0.5px 0.75px 1px #808080; 
 }
-.my_icon{
+.profilePicture{
   border-radius: 50%; 
-  margin: 50px 0px 0px 0px;
-  width: 300px;
-  height: 300px;
+  width: 80px;
+  height: 80px;
+  margin: 5pt 0pt 10pt 0pt;
 }
 </style>
