@@ -40,6 +40,7 @@ export default {
 </script>
 
 <style>
+/* font:NoteSnas */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 </style>
 

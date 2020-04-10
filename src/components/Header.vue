@@ -16,17 +16,17 @@
       @close="toggle"
     >
       <div v-if="open">
-        content here
+        menu
       </div>
     </Drawer>
   </div>
 </template>
 
-<!---->
-  
+
 <script>
+/* Drawer */
 import Drawer from "vue-simple-drawer";
-  
+
 export default {
   name: "App",
   components: {
@@ -66,5 +66,6 @@ export default {
 
 .btn_btn-success {
   background-color: #f3f3f3;
+  border: 0 none;
 }
 </style>

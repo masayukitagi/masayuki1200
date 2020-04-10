@@ -38,6 +38,8 @@
   background-color: #fff;
   width: 100%;
   height: auto;
+  border-bottom: dashed 1px	#d3d3d3;
+  padding-bottom: 130px;
 }
 
 .skillTitle {
@@ -51,6 +53,7 @@
 
 .skillExplain {
   margin: 10px auto;
+  text-align: left;
   color: #707070;
   font-family: 'Noto Sans JP', sans-serif;
   line-height: 1.5em;
