@@ -40,8 +40,7 @@ export default {
 </script>
 
 <style>
-@import url(//fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+/* font:NoteSnas */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 </style>
 
-<style>
-</style>
