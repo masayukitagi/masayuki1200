@@ -1,10 +1,16 @@
 <template>
   <div class="mainSection">
-    <div class="userName">M.Tagi
+    <div class="userName">
+      M.Tagi
     </div>
-    <div class="companyName">Sattleconsulting
+    <div class="companyName">
+      Sattleconsulting
     </div>
-    <img class="profilePicture" alt="Masayuki_Tagi" src="@/assets/my_icon.jpg">
+    <img
+      class="profilePicture"
+      alt="Masayuki_Tagi"
+      src="@/assets/my_icon.jpg"
+    >
   </div>
 </template>
 
@@ -19,37 +25,39 @@
 
 
 <style scoped>
-.mainSection{
-  background: linear-gradient(0deg, #06C1E6, #80E1F7);
+.mainSection {
+  background: linear-gradient(0deg, #06c1e6, #80e1f7);
   width: 100%;
   height: auto;
   text-align: center;
-  margin: 0pt 0pt 0pt 0pt;
+  margin: 0 0 0 0;
 }
-.userName{
-  margin: 0pt auto;
-  border-bottom: solid 1px	#FFFFFF;
-  color: #FFFFFF;
-  font-family: "Noto Sans Japanese";
+
+.userName {
+  margin: 0 auto;
+  border-bottom: solid 1px	#fff;
+  color: #fff;
+  font-family: 'Noto Sans JP', sans-serif;
   width: 130px;
   font-size: 18pt;
   font-weight: bold;
-  padding: 10pt 0pt 6pt 0pt;
-  text-shadow: 0.5px 0.75px 1px #808080; 
+  padding: 10pt 0 6pt 0;
+  text-shadow: 0.5px 0.75px 1px #808080;
 }
-.companyName{
-  
-  color: #FFFFFF;
-  font-family: "Noto Sans Japanese";
+
+.companyName {
+  color: #fff;
+  font-family: 'Noto Sans JP', sans-serif;
   font-size: 18pt;
   font-weight: bold;
-  margin: 6pt 0pt 10pt 0pt;
-  text-shadow: 0.5px 0.75px 1px #808080; 
+  margin: 6pt 0 10pt 0;
+  text-shadow: 0.5px 0.75px 1px #808080;
 }
-.profilePicture{
-  border-radius: 50%; 
+
+.profilePicture {
+  border-radius: 50%;
   width: 80px;
   height: 80px;
-  margin: 5pt 0pt 10pt 0pt;
+  margin: 5pt 0 10pt 0;
 }
 </style>
