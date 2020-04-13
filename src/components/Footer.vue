@@ -6,7 +6,7 @@
     >
       <img
         class="footerScroll"
-        ail="Footer"
+        alt="footer"
         src="@/assets/go_top.png"
       >
     </a>

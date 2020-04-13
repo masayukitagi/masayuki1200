@@ -14,16 +14,6 @@
   </div>
 </template>
 
-
-<!-- script -->
-
-<script>
-</script>
-
-
-<!-- CSS -->
-
-
 <style scoped>
 .mainSection {
   background: linear-gradient(0deg, #06c1e6, #80e1f7);
