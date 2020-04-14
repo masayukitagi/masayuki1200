@@ -6,6 +6,7 @@
     <Skill />
     <Vision />
     <Footer />
+    <test />
   </div>
 </template>
 
@@ -16,6 +17,7 @@ import About from './components/About.vue'
 import Skill from './components/Skill.vue'
 import Vision from './components/Vision.vue'
 import Footer from './components/Footer.vue'
+import test from './components/test.vue'
 
 export default {
   name: 'App',
@@ -26,6 +28,7 @@ export default {
     Skill,
     Vision,
     Footer,
+    test
   },
   get components() {
     return this._components

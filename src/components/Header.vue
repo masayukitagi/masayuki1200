@@ -35,10 +35,7 @@ export default {
   },
   get components() {
     return this._components
-  },
-  set components(value) {
-    this._components=value
-  },
+  }
 }
 </script>
 
