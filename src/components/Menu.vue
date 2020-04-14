@@ -3,7 +3,7 @@
   <div class="drawerSection">
     <img
       class="drawerButton"
-      alt="Masayuki_Tagi"
+      alt="メニューを閉じる"
       src="@/assets/close.png"
     >
     <ul class="drawerMenuSection">
@@ -63,7 +63,6 @@ export default {
         'y'
       )
     },
-
     clickSmoothScroll3 () {
       event.preventDefault()
       this.$SmoothScroll(
@@ -74,7 +73,6 @@ export default {
         'y'
       )
     },
-
     clickSmoothScroll4 () {
       event.preventDefault()
       this.$SmoothScroll(
@@ -118,6 +116,10 @@ export default {
   color: #707070;
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 25px;
+}
+
+.closeC {
+  display: none;
 }
 
 </style>
