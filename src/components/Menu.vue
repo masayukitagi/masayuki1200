@@ -1,11 +1,13 @@
 
 <template>
   <div class="drawerSection">
-    <img
-      class="drawerButton"
-      alt="メニューを閉じる"
-      src="@/assets/close.png"
-    >
+    <label for="nav-input">
+      <img
+        class="drawerButton"
+        alt="メニューを閉じる"
+        src="@/assets/close.png"
+      >
+    </label>
     <ul class="drawerMenuSection">
       <li id="drawerMenuItem">
         <a

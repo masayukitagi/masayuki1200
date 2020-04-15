@@ -18,6 +18,16 @@ export default {
       }
     }
   },
+  options: {
+    responsive: true,
+    scale: {
+      ticks: {
+        min: 0,
+        max: 30,
+        fontSize: 50,
+      }
+    },
+  },
   mounted () {
     this.renderChart(this.data, this.options)
   }

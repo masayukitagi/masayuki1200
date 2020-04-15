@@ -20,7 +20,7 @@
   width: 100%;
   height: auto;
   text-align: center;
-  margin: 0 0 0 0;
+  margin: 50px 0 0 0;
 }
 
 .userName {
@@ -46,8 +46,8 @@
 
 .profilePicture {
   border-radius: 50%;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   margin: 5pt 0 10pt 0;
 }
 </style>
