@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="body">
     <Header />
     <Main />
     <About />
@@ -42,5 +42,9 @@ export default {
 <style>
 /* font:NoteSnas */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+#body {
+  overflow: hidden;
+}
 </style>
 

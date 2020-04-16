@@ -19,117 +19,93 @@
     <div class="skillCategories">
       <label
         class="Front-end"
-        @click="isActive01=!isActive01"
+        @click="function1"
       >Front-end</label>
       <label
         class="Bsck-end"
-        @click="isActive02=!isActive02"
+        @click="function2"
       >Bsck-end</label>
       <label
         class="DevOps"
-        @click="isActive03=!isActive03"
+        @click="function3"
       >DevOps</label>
     </div>
     <div class="skillList">
-      <ul>
-        <li
-          id="Front-end-list"
-          :class="{activeR:isActive01}"
-        >
+      <ul
+        id="Front-end-list"
+        :class="{'active1':changes1}"
+      >
+        <li>
           HTML
         </li>
-        <li
-          id="Front-end-list"
-          :class="{activeR:isActive01}"
-        >
+        <li>
           CSS
         </li>
-        <li
-          id="Front-end-list"
-          :class="{activeR:isActive01}"
-        >
+        <li>
           javascript
         </li>
-        <li
-          id="Front-end-list"
-          :class="{activeR:isActive01}"
-        >
+        <li>
           SCSS
         </li>
-        <li
-          id="Front-end-list"
-          :class="{activeR:isActive01}"
-        >
+        <li>
           Vue
         </li>
       </ul>
-      <ul>
-        <li
-          id="Bsck-end-list"
-          :class="{activeG:isActive02}"
-        >
+      <ul
+        id="Bsck-end-list"
+        :class="{'active2':changes2}"
+      >
+        <li>
           java
         </li>
-        <li
-          id="Bsck-end-list"
-          :class="{activeG:isActive02}"
-        >
+        <li>
           Ruby
         </li>
-        <li
-          id="Bsck-end-list"
-          :class="{activeG:isActive02}"
-        >
+        <li>
           RubyOnRails
         </li>
-        <li
-          id="Bsck-end-list"
-          :class="{activeG:isActive02}"
-        >
+        <li>
           MySQL
         </li>
       </ul>
-      <ul>
-        <li
-          id="DevOps-list"
-          :class="{activeP:isActive03}"
-        >
+      <ul
+        id="DevOps-list"
+        :class="{'active3':changes3}"
+      >
+        <li>
           Linux
         </li>
-        <li
-          id="DevOps-list"
-          :class="{activeP:isActive03}"
-        >
+        <li>
           Node
         </li>
-        <li
-          id="DevOps-list"
-          :class="{activeP:isActive03}"
-        >
+        <li>
           Git
         </li>
-        <li
-          id="DevOps-list"
-          :class="{activeP:isActive03}"
-        >
+        <li>
           Github
         </li>
-        <li
-          id="DevOps-list"
-          :class="{activeP:isActive03}"
-        >
+        <li>
           Firebasa
         </li>
       </ul>
     </div>
-    <div class="skillGraph">
-      <FrontChart id="Graph" />
+    <div
+      v-if="changes1"
+      id="Graph"
+    >
+      <FrontChart />
     </div>
-    <div class="skillGraph">
-      <BackChart id="Graph" />
+    <div
+      v-if="changes2"
+      id="Graph"
+    >
+      <BackChart />
     </div>
-    <div class="skillGraph">
-      <DevOpsChart id="Graph" />
+    <div
+      v-if="changes3"
+      id="Graph"
+    >
+      <DevOpsChart />
     </div>
   </div>
 </template>
@@ -147,9 +123,26 @@ export default {
   },
   data(){
     return {
-      isActive01: false,
-      isActive02: false,
-      isActive03: false,
+      changes1: true,
+      changes2: false,
+      changes3: false,
+    }
+  },
+  methods: {
+    function1(){
+      this.changes1=!this.changes1,
+      this.changes2= false,
+      this.changes3= false
+    },
+    function2(){
+      this.changes1= false,
+      this.changes2=!this.changes2,
+      this.changes3= false
+    },
+    function3(){
+      this.changes1= false,
+      this.changes2= false,
+      this.changes3=!this.changes3
     }
   }
 }
@@ -175,7 +168,7 @@ export default {
 }
 
 .skillExplain {
-  margin: 10px auto;
+  margin: 10px auto  30px auto;
   text-align: left;
   color: #707070;
   font-family: 'Noto Sans JP', sans-serif;
@@ -183,6 +176,10 @@ export default {
   font-size: 12pt;
   font-weight: bold;
   width: 80%;
+}
+
+.gitHubLink {
+  text-decoration: none;
 }
 
 .gitHubLabel {
@@ -193,26 +190,20 @@ export default {
 }
 
 .skillCategories {
-  margin: 40px 0 0 0;
+  margin: 60px 0 0 0;
   text-align: center;
 }
 
-.activeR {
-  background-color: salmon;
-  border: none;
-  box-shadow: none;
+.active1 li {
+  background-color: rgb(255, 88, 70, 0.3);
 }
 
-.activeG {
-  background-color: rgb(34, 134, 25);
-  border: none;
-  box-shadow: none;
+.active2 li {
+  background-color: rgb(34, 134, 25, 0.3);
 }
 
-.activeP {
-  background-color: rgb(202, 68, 255);
-  border: none;
-  box-shadow: none;
+.active3 li {
+  background-color: rgb(202, 68, 255, 0.3);
 }
 
 .Front-end,
@@ -242,13 +233,11 @@ export default {
   margin: 20px 0 10px 0;
 }
 
-#Front-end-list,
-#Bsck-end-list,
-#DevOps-list {
+.skillList li {
+  list-style: none;
   display: inline-block;
   padding: 3px 10px;
   margin: 5px 5px;
-  border: solid 1px	#f5f5f5;
   box-shadow: 1px 2px 3px #808080e5;
   font-size: 12pt;
   font-family: 'Noto Sans JP', sans-serif;
@@ -268,7 +257,7 @@ export default {
 
 #Graph {
   margin: 40px auto;
-  width: 400px;
+  width: 350px;
 }
 
 </style>

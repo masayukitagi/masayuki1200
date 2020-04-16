@@ -25,7 +25,7 @@
   white-space: pre-wrap;
   font-size: 18pt;
   font-weight: bold;
-  padding: 10pt 0 10pt 0;
+  padding: 20pt 0 10pt 0;
   text-shadow: 0.5px 0.75px 1px #808080;
 }
 

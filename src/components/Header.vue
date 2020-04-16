@@ -41,15 +41,17 @@ export default {
 
 <style>
 .headerButton {
-  height: 40pt;
-  width: 40pt;
+  margin: 5px 5px;
+  height: 30pt;
+  width: 30pt;
 }
 
 #headerSection {
-  position: relative;
+  position: fixed;
+  top: 0%;
   background-color: #f3f3f3;
   width: 100%;
-  height: auto;
+  height: 50px;
 }
 
 .btn_btn-success {
