@@ -10,12 +10,24 @@ export default {
       data: {
         labels: ['java', 'Ruby', 'RubyOnRails', 'MySQL'],
         datasets: [{
-          data: [13, 6, 4, 10,],
+          data: [1, 6, 4, 8,],
           backgroundColor: [
             'rgba(50, 150, 50, 0.25)'
           ],
         }]
-      }
+      },
+      options: {
+        scale: {
+          ticks: {
+            suggestedMin: 0,
+            suggestedMax: 10,
+            stepSize: 2,
+          }
+        },
+        legend:{
+          display: false,
+        }
+      },
     }
   },
   mounted () {

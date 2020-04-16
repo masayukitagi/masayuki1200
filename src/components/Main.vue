@@ -1,5 +1,6 @@
 <template>
   <div class="mainSection">
+    <div class="upToMain" />
     <div class="userName">
       M.Tagi
     </div>
@@ -11,12 +12,13 @@
       alt="Masayuki_Tagi"
       src="@/assets/my_icon.jpg"
     >
+    <div class="upToAbout" />
   </div>
 </template>
 
 <style scoped>
 .mainSection {
-  background: linear-gradient(0deg, #06c1e6, #80e1f7);
+  background: linear-gradient(30deg, #989fff, rgb(52, 225, 255));
   width: 100%;
   height: auto;
   text-align: center;
@@ -31,7 +33,7 @@
   width: 130px;
   font-size: 18pt;
   font-weight: bold;
-  padding: 10pt 0 6pt 0;
+  padding: 20pt 0 6pt 0;
   text-shadow: 0.5px 0.75px 1px #808080;
 }
 
@@ -46,8 +48,17 @@
 
 .profilePicture {
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  margin: 5pt 0 10pt 0;
+  width: 160px;
+  height: 160px;
+  margin: 5pt 0 0 0;
+}
+
+.upToMain {
+  position: relative;
+  bottom: 40px;
+}
+
+.upToAbout {
+  padding: 0 0 20pt 0;
 }
 </style>

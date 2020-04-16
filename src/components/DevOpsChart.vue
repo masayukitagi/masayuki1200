@@ -10,12 +10,24 @@ export default {
       data: {
         labels: ['Linux', 'Node', 'Git', 'Github','Firebasa'],
         datasets: [{
-          data: [ 10, 4, 10, 8, 16],
+          data: [ 10, 4, 2, 8, 6],
           backgroundColor: [
             'rgba(100, 0, 150, 0.25)'
           ],
         }]
-      }
+      },
+      options: {
+        scale: {
+          ticks: {
+            suggestedMin: 0,
+            suggestedMax: 10,
+            stepSize: 2,
+          }
+        },
+        legend:{
+          display: false,
+        }
+      },
     }
   },
   mounted () {

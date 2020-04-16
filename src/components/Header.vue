@@ -2,6 +2,7 @@
   <div id="headerSection">
     <input
       id="nav-input"
+      v-model="check"
       type="checkbox"
       class="nav-unshown"
     >
@@ -21,7 +22,7 @@
       for="nav-input"
     />
     <div id="nav-content">
-      <Menu />
+      <Menu @close="closeDrower" />
     </div>
   </div>
 </template>
@@ -35,6 +36,16 @@ export default {
   },
   get components() {
     return this._components
+  },
+  data(){
+    return {
+      check: false
+    }
+  },
+  methods:{
+    closeDrower(){
+      this.check= false
+    }
   }
 }
 </script>
@@ -88,13 +99,14 @@ export default {
 
 /* 中身 */
 #nav-content {
+  text-align: center;
   overflow: auto;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 9999;/* 最前面に */
   width: 90%;/* 右側に隙間を作る（閉じるカバーを表示） */
-  max-width: 200px;/* 最大幅（調整してください） */
+  max-width: 170px;/* 最大幅（調整してください） */
   height: 100%;
   background-color: #f5f5f5;/* 背景色 */
   transition: 0.2s ease-in-out;/* 滑らかに表示 */
