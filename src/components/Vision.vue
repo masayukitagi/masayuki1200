@@ -21,7 +21,7 @@
   text-align: center;
   font-size: 18pt;
   font-weight: bold;
-  padding: 10pt 0 15pt 0;
+  padding: 30pt 0 20pt 0;
   text-shadow: 0.5px 0.75px 1px #808080;
 }
 
@@ -33,7 +33,7 @@
   font-size: 12pt;
   font-weight: bold;
   line-height: 1.5em;
-  padding: 0 0 30pt 0;
+  padding: 0 0 50pt 0;
   width: 80%;
 }
 </style>

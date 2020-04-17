@@ -4,7 +4,7 @@
       Skill set
     </div>
     <div class="skillExplain">
-      自分の"好き"ができ、自信を持て、人に提供し、人を笑顔にできるクリエイターを目指し、好奇心の向くことにチャレンジを惜しまない。そのために現在は、自分が大学時代に興味を持ったIT技術を0から勉強しています。
+      現在、私が持っているIT系のスキルはありません。入社後の研修で、フロントエンドの書き方が少しずつわかってきましたが、バックエンドやデブオプスはあまり理解が及んでいないため、これから自分でも勉強しつつ、経験を積んでいきます。また、下のグラフの内容に関しては、研修のため試験的に仮の数値を設定しているので、私のスキルのレベルとは全く別のものです。
     </div>
     <a
       class="gitHubLink"
@@ -24,7 +24,7 @@
       <label
         class="Bsck-end"
         @click="function2"
-      >Bsck-end</label>
+      >Back-end</label>
       <label
         class="DevOps"
         @click="function3"
@@ -107,6 +107,7 @@
     >
       <DevOpsChart />
     </div>
+    <div class="upToVision" />
   </div>
 </template>
 
@@ -163,12 +164,12 @@ export default {
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 18pt;
   font-weight: bold;
-  padding: 10pt 0 6pt 0;
+  padding: 20pt 0 10pt 0;
   text-shadow: 0.5px 0.75px 1px #808080;
 }
 
 .skillExplain {
-  margin: 10px auto  30px auto;
+  margin: 10px auto  20px auto;
   text-align: left;
   color: #707070;
   font-family: 'Noto Sans JP', sans-serif;
@@ -190,7 +191,7 @@ export default {
 }
 
 .skillCategories {
-  margin: 60px 0 0 0;
+  margin: 70px 0 0 0;
   text-align: center;
 }
 
