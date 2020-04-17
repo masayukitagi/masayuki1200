@@ -1,12 +1,12 @@
 <template>
-  <div id="app">
+  <div id="body">
     <Header />
     <Main />
     <About />
     <Skill />
     <Vision />
     <Footer />
-    <Menu />
+    <test />
   </div>
 </template>
 
@@ -17,7 +17,7 @@ import About from './components/About.vue'
 import Skill from './components/Skill.vue'
 import Vision from './components/Vision.vue'
 import Footer from './components/Footer.vue'
-import Menu from './components/Menu.vue'
+import test from './components/test.vue'
 
 export default {
   name: 'App',
@@ -28,7 +28,7 @@ export default {
     Skill,
     Vision,
     Footer,
-    Menu
+    test
   },
   get components() {
     return this._components
@@ -42,5 +42,9 @@ export default {
 <style>
 /* font:NoteSnas */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+#body {
+  overflow: hidden;
+}
 </style>
 

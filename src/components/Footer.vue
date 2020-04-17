@@ -1,12 +1,12 @@
 <template>
   <div class="footerSection">
     <a
-      href="#header"
+      href="#main"
       @click="clickSmoothScroll()"
     >
       <img
         class="footerScroll"
-        ail="Footer"
+        alt="footer"
         src="@/assets/go_top.png"
       >
     </a>
@@ -23,7 +23,7 @@ export default {
     clickSmoothScroll () {
       event.preventDefault()
       this.$SmoothScroll(
-        document.querySelector('#headerSection'),
+        document.querySelector('.upToMain'),
         400,
         null,
         null,
@@ -36,7 +36,7 @@ export default {
 
 <style scoped>
 .footerSection {
-  background: linear-gradient(0deg, #06c1e6, #80e1f7);
+  background: linear-gradient(30deg, #989fff, rgb(52, 225, 255));
   width: 100%;
   height: auto;
   text-align: center;
