@@ -10,7 +10,7 @@ export default {
       data: {
         labels: ['Linux', 'Node', 'Git', 'Github','Firebasa'],
         datasets: [{
-          data: [ 10, 4, 2, 8, 6],
+          data: [ 2, 3, 6, 6, 5],
           backgroundColor: [
             'rgba(100, 0, 150, 0.25)'
           ],
