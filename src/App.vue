@@ -2,6 +2,7 @@
   <div id="body">
     <Header />
     <Main />
+    <div>{{ this.skills }}</div>
     <About />
     <Skill />
     <Vision />
@@ -17,26 +18,57 @@ import About from './components/About.vue'
 import Skill from './components/Skill.vue'
 import Vision from './components/Vision.vue'
 import Footer from './components/Footer.vue'
-import test from './components/test.vue'
-
 export default {
   name: 'App',
-  _components: {
+  components: {
     Header,
     Main,
     About,
     Skill,
     Vision,
-    Footer,
-    test
+    Footer
   },
-  get components() {
-    return this._components
+  data() {
+    return {
+      skills: []
+    }
   },
-  set components(value) {
-    this._components=value
+  mounted () {
+    this.getSkills();
   },
+  methods: {
+    getSkills() {
+      // dataのスキルを初期化する
+      this.skills = [];
+      // this.skillsを一時変数のitemsに参照コピーする
+      let items = this.skills;
+      // axios.getを用いてデプロイ済のfunctionにアクセスする
+      this.axios.get('https://us-central1-masayukitagi-8e898.cloudfunctions.net/skills')
+        .then((response) => {
+          response.data.forEach(function(skill) {
+            // 取得したデータを１件ずつ配列に設定する
+            items.push(skill);
+          })
+        })
+        .catch((e) => {
+          alert(e);
+        });
+      console.log(items)
+    }
+  }
 }
+
+/*
+test
+ボタン切り替え
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue!'
+  }
+})
+↑test
+*/
 </script>
 
 <style>
@@ -47,4 +79,3 @@ export default {
   overflow: hidden;
 }
 </style>
-
