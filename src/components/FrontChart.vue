@@ -8,9 +8,9 @@ export default {
     return {
       /* グラフ内容 */
       data: {
-        labels: ['HTML', 'CSS', 'javascript', 'SCSS','Vue'],
+        labels: ['HTML', 'CSS', 'JavaScript', 'SCSS','Vue'],
         datasets: [{
-          data: [7, 8, 6, 3, 7],
+          data: [7, 8, 5, 2, 6],
           backgroundColor: [
             'rgba(150, 0, 0, 0.25)'
           ],

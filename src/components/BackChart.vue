@@ -10,7 +10,7 @@ export default {
       data: {
         labels: ['java', 'Ruby', 'RubyOnRails', 'MySQL'],
         datasets: [{
-          data: [1, 6, 4, 8,],
+          data: [2, 4, 4, 3,],
           backgroundColor: [
             'rgba(50, 150, 50, 0.25)'
           ],
