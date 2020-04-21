@@ -1,5 +1,6 @@
 <template>
   <div class="skillSection">
+    <div>{{ score }}</div>
     <div class="skillTitle">
       Skill set
     </div>
@@ -19,15 +20,15 @@
     <div class="skillCategories">
       <label
         class="Front-end"
-        @click="function1"
+        @click="function1(); chart1()"
       >Front-end</label>
       <label
         class="Bsck-end"
-        @click="function2"
+        @click="function2(); chart2()"
       >Back-end</label>
       <label
         class="DevOps"
-        @click="function3"
+        @click="function3(); chart3()"
       >DevOps</label>
     </div>
     <div class="skillList">
@@ -72,6 +73,7 @@
         id="DevOps-list"
         :class="{'active3':changes3}"
       >
+        s
         <li>
           Linux
         </li>
@@ -123,7 +125,21 @@ export default {
       changes3: false,
     }
   },
-  methods: {
+  computed:{
+    score(){
+      return this.$store.getters.chartScore[0]
+    }
+  },
+  methods:{
+    chart1(){
+      this.$store.dispatch('updateChartScore')
+    },
+    chart2(){
+      this.$store.dispatch('updateChartScore')
+    },
+    chart3(){
+      this.$store.dispatch('updateChartScore')
+    },
     function1(){
       this.changes1=!this.changes1,
       this.changes2= false,
@@ -139,7 +155,7 @@ export default {
       this.changes2= false,
       this.changes3=!this.changes3
     }
-  }
+  },
 }
 </script>
 
