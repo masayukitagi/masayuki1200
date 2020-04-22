@@ -1,37 +1,33 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 
-//vuexを読み込む
-Vue.use(Vuex)
-// storeをエクスポート
-const store = new Vuex.Store({
-
-  //stateオプションで初期値を設定
-  state: {
-    message: []
+Vue.use(Vuex)        //vuexを読み込む
+const store = new Vuex.Store({           // storeをエクスポート
+  state: {                //stateオプションで初期値を設定
+    chartScore: []      //初期値をなし
   },
-
-  getters: {
-    todos(state) {
-      return state.text
+  getters: {              //stateからデータを取得する
+    chartScore(state) {          //stateのchartScoreの値を取得
+      return state.chartScore     //取得した値をtemplateに返す
     }
   },
-
-  mutations: {
-    setTodo(state, data) {
-      state.text = data
+  mutations: {              //stateの値を更新する
+    setChartScore(state, paylord) {      //setって何？？？？？？？
+      state.chartScore = paylord.chartScore   //paylordの値に更新
     }
   },
-
-  actions: {
-    updateTodos({ commit }, data) {
-      commit('setTodo', data)
+  actions:{ //mutationsの関数を指定。stateの何を更新するかが決まる。
+    async updateChartScore({ commit }) {
+      let chartScore = [];         //chartScoreを空の状態に
+      let res = await axios.get('https://us-central1-masayukitagi-8e898.cloudfunctions.net/skills')     //axios.getでAPI（URLのやつ）を取得
+      res.data.forEach((score) => {     //forEach((score) =>これ以降の処理を値が終わるまで繰り返す。
+        chartScore.push(score);           //chartScoreにscoreの値をプッシュする
+        });
+      commit('setChartScore', {chartScore})        //
     }
   }
 })
-
-//store.stateで参照
-console.log(store.state.count) //10
 
 export default store
 
