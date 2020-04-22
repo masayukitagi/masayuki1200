@@ -5,16 +5,68 @@ import axios from 'axios'
 Vue.use(Vuex)        //vuexを読み込む
 const store = new Vuex.Store({           // storeをエクスポート
   state: {                //stateオプションで初期値を設定
-    chartScore: []      //初期値をなし
+    chartScore: [],    //初期値をなし
+    loaded : false
   },
-  getters: {              //stateからデータを取得する
-    chartScore(state) {          //stateのchartScoreの値を取得
-      return state.chartScore     //取得した値をtemplateに返す
+  getters: {
+    frontScore(state){
+      const frontScoreAllay=[]
+      state.chartScore[0].skills.forEach((skillInfo)=>{
+        frontScoreAllay.push(skillInfo.score)
+      })
+      return frontScoreAllay
+    },
+    backScore(state){
+      const backScoreAllay=[]
+      state.chartScore[1].skills.forEach((skillInfo)=>{
+        backScoreAllay.push(skillInfo.score)
+      })
+      return backScoreAllay
+    },
+    devScore(state){
+      const devScoreAllay=[]
+      state.chartScore[2].skills.forEach((skillInfo)=>{
+        devScoreAllay.push(skillInfo.score)
+      })
+      return devScoreAllay
+    },
+    frontName(state){
+      const frontNameAllay=[]
+      state.chartScore[0].skills.forEach((skillInfo)=>{
+        frontNameAllay.push(skillInfo.name)
+      })
+      return frontNameAllay
+    },
+    backName(state){
+      const backNameAllay=[]
+      state.chartScore[1].skills.forEach((skillInfo)=>{
+        backNameAllay.push(skillInfo.name)
+      })
+      return backNameAllay
+    },
+    devName(state){
+      const devNameAllay=[]
+      state.chartScore[2].skills.forEach((skillInfo)=>{
+        devNameAllay.push(skillInfo.name)
+      })
+      return devNameAllay
     }
   },
+
+  // getters: {              //stateからデータを取得する
+  //   chartScore(state) {
+  //     const scoreAllay = []
+  //       state.chartScore[0].skills.forEach((frontAllay)=>{
+  //         scoreAllay.push(frontAllay.score)
+  //       })          //stateのchartScoreの値を取得
+  //       return scoreAllay     //取得した値をtemplateに返す
+  //   }
+  // },
+
   mutations: {              //stateの値を更新する
     setChartScore(state, paylord) {      //setって何？？？？？？？
       state.chartScore = paylord.chartScore   //paylordの値に更新
+      state.loaded = true
     }
   },
   actions:{ //mutationsの関数を指定。stateの何を更新するかが決まる。

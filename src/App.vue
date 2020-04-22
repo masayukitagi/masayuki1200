@@ -28,6 +28,9 @@ export default {
     Vision,
     Footer
   },
+  mounted(){
+    this.$store.dispatch('updateChartScore');
+  }
 }
 </script>
 

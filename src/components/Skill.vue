@@ -1,6 +1,5 @@
 <template>
   <div class="skillSection">
-    <div>{{ score }}</div>
     <div class="skillTitle">
       Skill set
     </div>
@@ -20,15 +19,15 @@
     <div class="skillCategories">
       <label
         class="Front-end"
-        @click="function1(); chart1()"
+        @click="function1()"
       >Front-end</label>
       <label
         class="Bsck-end"
-        @click="function2(); chart2()"
+        @click="function2()"
       >Back-end</label>
       <label
         class="DevOps"
-        @click="function3(); chart3()"
+        @click="function3()"
       >DevOps</label>
     </div>
     <div class="skillList">
@@ -92,15 +91,15 @@
       </ul>
     </div>
     <FrontChart
-      v-if="changes1"
+      v-if="changes1 && loaded"
       id="Graph"
     />
     <BackChart
-      v-if="changes2"
+      v-if="changes2 && loaded"
       id="Graph"
     />
     <DevOpsChart
-      v-if="changes3"
+      v-if="changes3 && loaded"
       id="Graph"
     />
     <div class="upToVision" />
@@ -126,20 +125,11 @@ export default {
     }
   },
   computed:{
-    score(){
-      return this.$store.getters.chartScore[0]
+    loaded(){
+      return this.$store.state.loaded  //store.jsの中を判断する。
     }
   },
   methods:{
-    chart1(){
-      this.$store.dispatch('updateChartScore')
-    },
-    chart2(){
-      this.$store.dispatch('updateChartScore')
-    },
-    chart3(){
-      this.$store.dispatch('updateChartScore')
-    },
     function1(){
       this.changes1=!this.changes1,
       this.changes2= false,
@@ -155,7 +145,7 @@ export default {
       this.changes2= false,
       this.changes3=!this.changes3
     }
-  },
+  }
 }
 </script>
 

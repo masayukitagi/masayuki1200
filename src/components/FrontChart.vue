@@ -1,16 +1,18 @@
 <script>
 import { Radar } from 'vue-chartjs';
+import store from '../store'
 
 export default {
   name: 'Chart',
+  store,
   extends: Radar,
   data () {
     return {
       /* グラフ内容 */
       data: {
-        labels: ['HTML', 'CSS', 'JavaScript', 'SCSS','Vue'],
+        labels: [],
         datasets: [{
-          data: [7, 8, 5, 2, 6],
+          data: [],
           backgroundColor: [
             'rgba(150, 0, 0, 0.25)'
           ],
@@ -31,7 +33,23 @@ export default {
     }
   },
   mounted () {
+    this.getSkillScore()
+    this.getSkillName()
     this.renderChart(this.data, this.options)
+  },
+  methods:{
+    // storeからscore
+    getSkillScore(){
+      const skillScore=this.$store.getters.frontScore
+      this.data.datasets[0].data=skillScore
+    },
+    // storeからname
+    getSkillName(){
+      const skillScore=this.$store.getters.frontName
+      this.data.labels=skillScore
+    }
   }
 }
+// detaの中のdatasetsに配列を持ってくる
+
 </script>

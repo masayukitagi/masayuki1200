@@ -8,9 +8,9 @@ export default {
     return {
       /* グラフ内容 */
       data: {
-        labels: ['java', 'Ruby', 'RubyOnRails', 'MySQL'],
+        labels: [],
         datasets: [{
-          data: [2, 4, 4, 3,],
+          data: [],
           backgroundColor: [
             'rgba(50, 150, 50, 0.25)'
           ],
@@ -30,8 +30,24 @@ export default {
       },
     }
   },
+  created(){
+    this.getSkillScore()
+    this.getSkillName()
+  },
   mounted () {
     this.renderChart(this.data, this.options)
+  },
+  methods:{
+    // storeからscore
+    getSkillScore(){
+      const skillScore=this.$store.getters.backScore
+      this.data.datasets[0].data=skillScore
+    },
+    // storeからname
+    getSkillName(){
+      const skillScore=this.$store.getters.backName
+      this.data.labels=skillScore
+    }
   }
 }
 </script>
