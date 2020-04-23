@@ -4,7 +4,7 @@
       Skill set
     </div>
     <div class="skillExplain">
-      現在、私が持っているIT系のスキルはありません。入社後の研修で、フロントエンドの書き方が少しずつわかってきましたが、バックエンドやデブオプスはあまり理解が及んでいないため、これから自分でも勉強しつつ、経験を積んでいきます。また、下のグラフの内容に関しては、研修のため試験的に仮の数値を設定しているので、私のスキルのレベルとは全く別のものです。
+      入社後の研修で、フロントエンド側の書き方が少しずつわかってきましたが、バックエンドやデブオプスはあまり理解が及んでいないため、これから自分でも学習しつつ、経験を積んでいきます。また、ポートフォリオ作成を通して、フロントエンド側の実装に興味を持ちました。現段階では、仕様書を参考に基礎を学んでいるので、見手への見え方や導線計画などを踏まえたデザインに時間をさくことができていないのが現状ですが、そういったデザイン面も考えながら実装できるようになりたいです。
     </div>
     <a
       class="gitHubLink"
@@ -19,15 +19,15 @@
     <div class="skillCategories">
       <label
         class="Front-end"
-        @click="function1"
+        @click="function1()"
       >Front-end</label>
       <label
         class="Bsck-end"
-        @click="function2"
+        @click="function2()"
       >Back-end</label>
       <label
         class="DevOps"
-        @click="function3"
+        @click="function3()"
       >DevOps</label>
     </div>
     <div class="skillList">
@@ -42,7 +42,7 @@
           CSS
         </li>
         <li>
-          javascript
+          JavaScript
         </li>
         <li>
           SCSS
@@ -89,24 +89,18 @@
         </li>
       </ul>
     </div>
-    <div
-      v-if="changes1"
+    <FrontChart
+      v-if="changes1 && loaded"
       id="Graph"
-    >
-      <FrontChart />
-    </div>
-    <div
-      v-if="changes2"
+    />
+    <BackChart
+      v-if="changes2 && loaded"
       id="Graph"
-    >
-      <BackChart />
-    </div>
-    <div
-      v-if="changes3"
+    />
+    <DevOpsChart
+      v-if="changes3 && loaded"
       id="Graph"
-    >
-      <DevOpsChart />
-    </div>
+    />
     <div class="upToVision" />
   </div>
 </template>
@@ -129,7 +123,12 @@ export default {
       changes3: false,
     }
   },
-  methods: {
+  computed:{
+    loaded(){
+      return this.$store.state.loaded  //store.jsの中を判断する。
+    }
+  },
+  methods:{
     function1(){
       this.changes1=!this.changes1,
       this.changes2= false,

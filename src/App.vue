@@ -17,25 +17,20 @@ import About from './components/About.vue'
 import Skill from './components/Skill.vue'
 import Vision from './components/Vision.vue'
 import Footer from './components/Footer.vue'
-import test from './components/test.vue'
 
 export default {
   name: 'App',
-  _components: {
+  components: {
     Header,
     Main,
     About,
     Skill,
     Vision,
-    Footer,
-    test
+    Footer
   },
-  get components() {
-    return this._components
-  },
-  set components(value) {
-    this._components=value
-  },
+  mounted(){
+    this.$store.dispatch('updateChartScore');
+  }  //Appが一番親だから読み込みが早い。これは1回サイトに反映したらそれでいいから早く入れておく
 }
 </script>
 
@@ -47,4 +42,3 @@ export default {
   overflow: hidden;
 }
 </style>
-

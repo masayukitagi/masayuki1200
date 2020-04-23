@@ -11,7 +11,7 @@
       >
     </a>
     <div class="footerCopyright">
-      @ Seattleconsulting
+      ©️ Seattleconsulting
     </div>
   </div>
 </template>

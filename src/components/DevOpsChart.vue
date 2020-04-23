@@ -8,9 +8,9 @@ export default {
     return {
       /* グラフ内容 */
       data: {
-        labels: ['Linux', 'Node', 'Git', 'Github','Firebasa'],
+        labels: [],
         datasets: [{
-          data: [ 10, 4, 2, 8, 6],
+          data: [],
           backgroundColor: [
             'rgba(100, 0, 150, 0.25)'
           ],
@@ -31,7 +31,21 @@ export default {
     }
   },
   mounted () {
+    this.getSkillScore()
+    this.getSkillName()
     this.renderChart(this.data, this.options)
+  },
+  methods:{
+    // storeからscore
+    getSkillScore(){
+      const skillScore=this.$store.getters.devScore
+      this.data.datasets[0].data=skillScore //[0]上のことよ
+    },
+    // storeからname
+    getSkillName(){
+      const skillScore=this.$store.getters.devName
+      this.data.labels=skillScore
+    }
   }
 }
 </script>
