@@ -71,8 +71,9 @@ const store = new Vuex.Store({           // storeをエクスポート
   },
   actions:{ //mutationsの関数を指定。stateの何を更新するかが決まる。
     async updateChartScore({ commit }) {
-      let chartScore = [];         //chartScoreを空の状態に
-      let res = await axios.get('https://us-central1-masayukitagi-8e898.cloudfunctions.net/skills')     //axios.getでAPI（URLのやつ）を取得
+      const chartScore = [];         //chartScoreを空の状態に
+      const functionsUrl = 'https://us-central1-' + process.env.VUE_APP_FUNCTIONS_API + '.cloudfunctions.net/skills';
+      const res = await axios.get(functionsUrl);     //axios.getでAPI（URLのやつ）を取得
       res.data.forEach((score) => {     //forEach((score) =>これ以降の処理を値が終わるまで繰り返す。
         chartScore.push(score);           //chartScoreにscoreの値をプッシュする
         });

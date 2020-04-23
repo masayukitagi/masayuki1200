@@ -9,11 +9,11 @@ export default {
   data () {
     return {
       /* グラフ内容 */
-      data: {
-        labels: [],
-        datasets: [{
-          data: [],
-          backgroundColor: [
+      data: {     //dataオブジェクトを定義 {}
+        labels: [],    //dataオブジェクト内に labels:[] を定義(key:labels)
+        datasets: [{  //dataオブジェクト内に datasets:[{--}] を定義。datasets配列を定義。配列内に無名のオブジェクトを定義
+          data: [],   //datasets配列内の、無名のオブジェクト内に、 labels:[] を定義
+          backgroundColor: [   //datasets配列内に labels:[] を定義
             'rgba(150, 0, 0, 0.25)'
           ],
         }]

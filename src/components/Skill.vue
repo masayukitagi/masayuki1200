@@ -72,7 +72,6 @@
         id="DevOps-list"
         :class="{'active3':changes3}"
       >
-        s
         <li>
           Linux
         </li>
