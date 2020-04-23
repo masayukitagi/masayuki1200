@@ -1,5 +1,21 @@
 {
   "projects": {
     "default": "masayukitagi-8e898"
+  },
+  "targets": {
+    "masayukitagi-8e898": {
+      "hosting": {
+        "portfolio": [
+          "masayukitagi-8e898"
+        ]
+      }
+    },
+    "dev-portfolio-b690c": {
+      "hosting": {
+        "portfolio": [
+          "dev-portfolio-b690c"
+        ]
+      }
+    }
   }
 }

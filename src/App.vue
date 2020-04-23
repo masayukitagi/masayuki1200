@@ -30,7 +30,7 @@ export default {
   },
   mounted(){
     this.$store.dispatch('updateChartScore');
-  }
+  }  //Appが一番親だから読み込みが早い。これは1回サイトに反映したらそれでいいから早く入れておく
 }
 </script>
 
