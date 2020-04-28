@@ -2,82 +2,77 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 
-Vue.use(Vuex)        //vuexを読み込む
-const store = new Vuex.Store({           // storeをエクスポート
-  state: {                //stateオプションで初期値を設定
-    chartScore: [],    //初期値をなし
-    loaded : false
+Vue.use(Vuex)                   //vuexを読み込む
+const store = new Vuex.Store({  //store を定義
+
+  state: {                      //stateで現状を設定。
+    chartScore : [],            //chartScore という配列を空に設定。
+    loaded : false              //loaded という関数を false に設定。
   },
+
   getters: {
-    frontScore(state){
-      const frontScoreAllay=[]
-      state.chartScore[0].skills.forEach((skillInfo)=>{
-        frontScoreAllay.push(skillInfo.score)
+    frontScore(state){  //frontScoreという処理を定義。
+      const frontScoreAllay=[]  //frontScoreAllayという配列を定義。
+      state.chartScore[0].skills.forEach((filter)=>{  //state/chartScore0番目の配列/skillsの配列全てに次の処理を実行。処理filterを定義。
+        frontScoreAllay.push(filter.score)  //定義した frontScoreAllay に 処理filter で取得したscoreの値をプッシュする処理。
       })
-      return frontScoreAllay
+      return frontScoreAllay  //上の処理結果を返す。frontscoreの値が決まる。
     },
     backScore(state){
       const backScoreAllay=[]
-      state.chartScore[1].skills.forEach((skillInfo)=>{
-        backScoreAllay.push(skillInfo.score)
+      state.chartScore[1].skills.forEach((filter)=>{
+        backScoreAllay.push(filter.score)
       })
       return backScoreAllay
     },
     devScore(state){
       const devScoreAllay=[]
-      state.chartScore[2].skills.forEach((skillInfo)=>{
-        devScoreAllay.push(skillInfo.score)
+      state.chartScore[2].skills.forEach((filter)=>{
+        devScoreAllay.push(filter.score)
       })
       return devScoreAllay
     },
     frontName(state){
       const frontNameAllay=[]
-      state.chartScore[0].skills.forEach((skillInfo)=>{
-        frontNameAllay.push(skillInfo.name)
+      state.chartScore[0].skills.forEach((filter)=>{
+        frontNameAllay.push(filter.name)  //定義した frontNameAllay に 処理skillInfo で取得したnameの値をプッシュする処理。
       })
       return frontNameAllay
     },
     backName(state){
       const backNameAllay=[]
-      state.chartScore[1].skills.forEach((skillInfo)=>{
-        backNameAllay.push(skillInfo.name)
+      state.chartScore[1].skills.forEach((filter)=>{
+        backNameAllay.push(filter.name)
       })
       return backNameAllay
     },
     devName(state){
       const devNameAllay=[]
-      state.chartScore[2].skills.forEach((skillInfo)=>{
-        devNameAllay.push(skillInfo.name)
+      state.chartScore[2].skills.forEach((filter)=>{
+        devNameAllay.push(filter.name)
       })
       return devNameAllay
     }
   },
 
-  // getters: {              //stateからデータを取得する
-  //   chartScore(state) {
-  //     const scoreAllay = []
-  //       state.chartScore[0].skills.forEach((frontAllay)=>{
-  //         scoreAllay.push(frontAllay.score)
-  //       })          //stateのchartScoreの値を取得
-  //       return scoreAllay     //取得した値をtemplateに返す
-  //   }
-  // },
+
 
   mutations: {              //stateの値を更新する
-    setChartScore(state, paylord) {      //setって何？？？？？？？
-      state.chartScore = paylord.chartScore   //paylordの値に更新
-      state.loaded = true
+    setChartScore(state, paylord) {      //setChartScore という処理を定義し、第一・第二引数を設定。
+      state.chartScore = paylord.chartScore   //state の chartScore の値を paylord（アクション後）の chartScore の値に更新。
+      state.loaded = true  //state の loaded  を true に。（→skill.vue の computed がこの更新内容を取得。）
     }
   },
+
   actions:{ //mutationsの関数を指定。stateの何を更新するかが決まる。
     async updateChartScore({ commit }) {
-      const chartScore = [];         //chartScoreを空の状態に
-      const functionsUrl = 'https://us-central1-' + process.env.VUE_APP_FUNCTIONS_API + '.cloudfunctions.net/skills';
-      const res = await axios.get(functionsUrl);     //axios.getでAPI（URLのやつ）を取得
-      res.data.forEach((score) => {     //forEach((score) =>これ以降の処理を値が終わるまで繰り返す。
-        chartScore.push(score);           //chartScoreにscoreの値をプッシュする
+      const chartScore = [];         //chartScore を定義。
+      const functionsUrl = 'https://us-central1-' + process.env.VUE_APP_FUNCTIONS_API + '.cloudfunctions.net/skills'; //functionsUrl を定義。
+      const res = await axios.get(functionsUrl);     //axios.get で API（functionsUrl）を取得。データベースと連結。
+      res.data.forEach((data) => {     //forEach((score) => 次の処理を（res.data.）データベース内の全ての配列に繰り返し実行。処理scoreを定義。
+        chartScore.push(data);           //定義した chartScore に処理scoreで取得した値をプッシュする処理。
         });
-      commit('setChartScore', {chartScore})        //
+      commit('setChartScore', {chartScore})        //mutations の setChartScore を呼び chartScore を更新。
     }
   }
 })

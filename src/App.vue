@@ -6,7 +6,6 @@
     <Skill />
     <Vision />
     <Footer />
-    <test />
   </div>
 </template>
 

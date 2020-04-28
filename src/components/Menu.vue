@@ -101,6 +101,7 @@ export default {
 }
 
 .drawerButton {
+  cursor: pointer;
   padding: 25px 0 10px 0;
   width: 20px;
   height: 20px;
@@ -113,6 +114,7 @@ export default {
 }
 
 #drawerMenuItem {
+  cursor: pointer;
   padding: 15px 0;
   width: 100%;
   height: auto;

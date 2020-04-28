@@ -4,7 +4,7 @@
       Skill set
     </div>
     <div class="skillExplain">
-      入社後の研修で、フロントエンド側の書き方が少しずつわかってきましたが、バックエンドやデブオプスはあまり理解が及んでいないため、これから自分でも学習しつつ、経験を積んでいきます。また、ポートフォリオ作成を通して、フロントエンド側の実装に興味を持ちました。現段階では、仕様書を参考に基礎を学んでいるので、見手への見え方や導線計画などを踏まえたデザインに時間をさくことができていないのが現状ですが、そういったデザイン面も考えながら実装できるようになりたいです。
+      入社後の研修で、FrontEnd側の書き方がわかってきましたが、BackEndやDevOpsはあまり理解が及んでいないため、これから自発的に学習しつつ、経験を積んでいきます。またポートフォリオ作成を通して、自分の書いたプログラムが実際に見える点からフロントエンド側の実装に興味を持ちました。現段階では、仕様書を参考に基礎を学んでいるので、見手への見え方や導線計画などを踏まえたデザインに時間を割くことができていないのが現状ですが、そういったデザイン面も考えながらより大きな価値を人に提供し笑顔にできるよう、学習したことをしっかり定着させ作業速度を向上させます。
     </div>
     <a
       class="gitHubLink"
@@ -14,26 +14,37 @@
       <label
         class="gitHubLabel"
         for="name1"
-      >GitHub : https://github.com/masayukitagi</label>
+      ><span id="GitHub">GitHub</span> : https://github.com/masayukitagi</label>
     </a>
+
+
+
     <div class="skillCategories">
       <label
         class="Front-end"
-        @click="function1()"
+        :class="{'frontEnd2':changeF}"
+        @click="clickCategory('front')"
       >Front-end</label>
+
       <label
         class="Bsck-end"
-        @click="function2()"
+        :class="{'backEnd2':changeB}"
+        @click="clickCategory('back')"
       >Back-end</label>
+
       <label
         class="DevOps"
-        @click="function3()"
+        :class="{'devOps2':changeD}"
+        @click="clickCategory('dev')"
       >DevOps</label>
     </div>
+
+
+
     <div class="skillList">
       <ul
         id="Front-end-list"
-        :class="{'active1':changes1}"
+        :class="{'active1':changeF}"
       >
         <li>
           HTML
@@ -51,9 +62,10 @@
           Vue
         </li>
       </ul>
+
       <ul
         id="Bsck-end-list"
-        :class="{'active2':changes2}"
+        :class="{'active2':changeB}"
       >
         <li>
           java
@@ -68,9 +80,10 @@
           MySQL
         </li>
       </ul>
+
       <ul
         id="DevOps-list"
-        :class="{'active3':changes3}"
+        :class="{'active3':changeD}"
       >
         <li>
           Linux
@@ -90,15 +103,15 @@
       </ul>
     </div>
     <FrontChart
-      v-if="changes1 && loaded"
+      v-if="changeF && afterLoaded"
       id="Graph"
     />
     <BackChart
-      v-if="changes2 && loaded"
+      v-if="changeB"
       id="Graph"
     />
     <DevOpsChart
-      v-if="changes3 && loaded"
+      v-if="changeD"
       id="Graph"
     />
     <div class="upToVision" />
@@ -116,34 +129,29 @@ export default {
   BackChart,
   DevOpsChart
   },
-  data(){
-    return {
-      changes1: true,
-      changes2: false,
-      changes3: false,
+  data(){  //表示,適用するもの
+    return {  //下の状態を返す。
+      openedSkill:'front' //openedSkill は front という状態。
     }
   },
   computed:{
-    loaded(){
-      return this.$store.state.loaded  //store.jsの中を判断する。
+    afterLoaded(){ //afterLoaded（フロントエンドのグラフ） に。
+      return this.$store.state.loaded  //常に store.js/state/ 内の loaded の算出結果を返している。
+    },
+    changeF(){  //changeF（アイテムとグラフ） に、
+      return this.openedSkill == 'front' //常に openedSkill = front の算出結果を返している。(算出結果は openedSkill = front)
+    }, //openedSkill が back のとき changeF は false
+    changeB(){  //changeB（アイテムとグラフ） に、
+      return this.openedSkill == 'back' //常に openedSkill = back の算出結果を返している。(算出結果は openedSkill = back)
+    },
+    changeD(){  //changeD（アイテムとグラフ） に、
+      return this.openedSkill == 'dev' //常に openedSkill = dev の算出結果を返している。(算出結果は openedSkill = dev)
     }
   },
   methods:{
-    function1(){
-      this.changes1=!this.changes1,
-      this.changes2= false,
-      this.changes3= false
-    },
-    function2(){
-      this.changes1= false,
-      this.changes2=!this.changes2,
-      this.changes3= false
-    },
-    function3(){
-      this.changes1= false,
-      this.changes2= false,
-      this.changes3=!this.changes3
-    }
+    clickCategory (x){ //引数 x をクリックすると
+      return this.openedSkill = x //openedSkill が x になる。
+    } //引数 = x = openSkill になった。
   }
 }
 </script>
@@ -178,15 +186,35 @@ export default {
   width: 80%;
 }
 
+#GitHub {
+  font-weight: bold;
+}
+
 .gitHubLink {
   text-decoration: none;
 }
 
 .gitHubLabel {
+  cursor: pointer;
   margin: 10px auto;
   color: #20879f;
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 12pt;
+}
+
+.frontEnd2 {
+  border-bottom: solid 2px	rgb(255, 68, 68);
+  padding-bottom: 3px;
+}
+
+.backEnd2 {
+  border-bottom: solid 2px	rgb(34, 134, 25);
+  padding-bottom: 3px;
+}
+
+.devOps2 {
+  border-bottom: solid 2px	rgb(202, 68, 255);
+  padding-bottom: 3px;
 }
 
 .skillCategories {
@@ -196,19 +224,23 @@ export default {
 
 .active1 li {
   background-color: rgb(255, 88, 70, 0.3);
+  box-shadow: 1px 2px 3px #808080e5;
 }
 
 .active2 li {
   background-color: rgb(34, 134, 25, 0.3);
+  box-shadow: 1px 2px 3px #808080e5;
 }
 
 .active3 li {
   background-color: rgb(202, 68, 255, 0.3);
+  box-shadow: 1px 2px 3px #808080e5;
 }
 
 .Front-end,
 .Bsck-end,
 .DevOps {
+  cursor: pointer;
   display: inline-block;
   margin: 0 10px;
   font-family: 'Noto Sans JP', sans-serif;
@@ -238,7 +270,6 @@ export default {
   display: inline-block;
   padding: 3px 10px;
   margin: 5px 5px;
-  box-shadow: 1px 2px 3px #808080e5;
   font-size: 12pt;
   font-family: 'Noto Sans JP', sans-serif;
 }
@@ -261,3 +292,63 @@ export default {
 }
 
 </style>
+
+<!--以下でも可能
+
+<template>
+  <div>
+
+    <div class="skillCategories">
+      <label @click="function1()"> Front-end </label>
+      <label @click="function2()"> Back-end </label>
+      <label @click="function3()"> DevOps </label>
+    </div>
+
+    <div>
+      <ul :class="{'active1':changes1}">
+      </ul>
+      <ul :class="{'active2':changes2}">
+      </ul>
+      <ul :class="{'active3':changes3}">
+      </ul>
+    </div>
+
+    <FrontChart
+      v-if="changes1 && loaded" />
+    <BackChart
+      v-if="changes2 && loaded" />
+    <DevOpsChart
+      v-if="changes3 && loaded" />
+
+  </div>
+</template>
+
+<script>
+  data(){
+    return {
+      changes1: true,
+      changes2: false,
+      changes3: false,
+    }
+  },
+  methods:{
+    function1(){
+      this.changes1=!this.changes1,
+      this.changes2= false,
+      this.changes3= false
+    },
+    function2(){
+      this.changes1= false,
+      this.changes2=!this.changes2,
+      this.changes3= false
+    },
+    function3(){
+      this.changes1= false,
+      this.changes2= false,
+      this.changes3=!this.changes3
+    }
+  }
+}
+</script>
+
+-->
