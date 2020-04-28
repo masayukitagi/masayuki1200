@@ -52,6 +52,7 @@ export default {
 
 <style>
 .headerButton {
+  cursor: pointer;
   margin: 5px 5px;
   height: 30pt;
   width: 30pt;
