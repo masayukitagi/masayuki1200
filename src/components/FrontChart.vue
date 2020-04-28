@@ -14,6 +14,10 @@ export default {
         datasets: [{  //dataオブジェクト内に datasets:[{--}] を定義。datasets配列を定義。配列内に無名のオブジェクトを定義
           data: [],   //datasets配列内の、無名のオブジェクト内に、 labels:[] を定義
           backgroundColor: [   //datasets配列内に labels:[] を定義
+            'rgba(150, 0, 0, 0.25)',
+            'rgba(150, 0, 0, 0.25)',
+            'rgba(150, 0, 0, 0.25)',
+            'rgba(150, 0, 0, 0.25)',
             'rgba(150, 0, 0, 0.25)'
           ],
         }]
@@ -32,24 +36,21 @@ export default {
       },
     }
   },
-  mounted () {
-    this.getSkillScore()
-    this.getSkillName()
+  mounted () { //ページ更新時に次の処理を実行
+    this.getSkillScore() //getSkillScoreイベントの発生
+    this.getSkillName() //getSkillNameイベントの発生
     this.renderChart(this.data, this.options)
   },
-  methods:{
-    // storeからscore
-    getSkillScore(){
-      const skillScore=this.$store.getters.frontScore
-      this.data.datasets[0].data=skillScore
+  methods:{ //イベント発生時に次の処理を実行
+    getSkillScore(){  // storeからgettersで取得したstateのscoreを取得
+      const skillScore=this.$store.getters.frontScore  //skillScoreを定義。右辺はその値。
+      this.data.datasets[0].data=skillScore  //本コンポーネントの data/datasetsの０番目の配列/data を skillScore に。
     },
-    // storeからname
-    getSkillName(){
+    getSkillName(){  // storeからgettersで絞り込んだstateのnameを取得
       const skillScore=this.$store.getters.frontName
-      this.data.labels=skillScore
+      this.data.labels=skillScore  //本コンポーネントの data/labels を skillScore に。
     }
   }
 }
-// detaの中のdatasetsに配列を持ってくる
 
 </script>

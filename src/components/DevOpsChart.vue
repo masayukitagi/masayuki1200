@@ -12,6 +12,10 @@ export default {
         datasets: [{
           data: [],
           backgroundColor: [
+            'rgba(100, 0, 150, 0.25)',
+            'rgba(100, 0, 150, 0.25)',
+            'rgba(100, 0, 150, 0.25)',
+            'rgba(100, 0, 150, 0.25)',
             'rgba(100, 0, 150, 0.25)'
           ],
         }]
