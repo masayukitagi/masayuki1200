@@ -11,44 +11,44 @@ const store = new Vuex.Store({  //store を定義
   },
 
   getters: {
-    frontScore(state){  //frontScoreという処理を定義。
-      const frontScoreAllay=[]  //frontScoreAllayという配列を定義。
-      state.chartScore[0].skills.forEach((filter)=>{  //state/chartScore0番目の配列/skillsの配列全てに次の処理を実行。処理filterを定義。
-        frontScoreAllay.push(filter.score)  //定義した frontScoreAllay に 処理filter で取得したscoreの値をプッシュする処理。
+    frontScore(state){                                //frontScoreという処理を定義。
+      const frontScoreAllay=[]                        //frontScoreAllayという配列を定義。
+      state.chartScore[1].skills.forEach((filter)=>{  //state/chartScore0番目の配列/skillsの配列全てに次の処理を実行。処理filterを定義。
+        frontScoreAllay.push(filter.score)            //定義した frontScoreAllay に 処理filter で取得したscoreの値をプッシュする処理。
       })
-      return frontScoreAllay  //上の処理結果を返す。frontscoreの値が決まる。
+      return frontScoreAllay                          //上の処理結果を返す。frontscoreの値が決まる。
     },
     backScore(state){
       const backScoreAllay=[]
-      state.chartScore[1].skills.forEach((filter)=>{
+      state.chartScore[2].skills.forEach((filter)=>{
         backScoreAllay.push(filter.score)
       })
       return backScoreAllay
     },
     devScore(state){
       const devScoreAllay=[]
-      state.chartScore[2].skills.forEach((filter)=>{
+      state.chartScore[0].skills.forEach((filter)=>{
         devScoreAllay.push(filter.score)
       })
       return devScoreAllay
     },
     frontName(state){
       const frontNameAllay=[]
-      state.chartScore[0].skills.forEach((filter)=>{
+      state.chartScore[1].skills.forEach((filter)=>{
         frontNameAllay.push(filter.name)  //定義した frontNameAllay に 処理skillInfo で取得したnameの値をプッシュする処理。
       })
       return frontNameAllay
     },
     backName(state){
       const backNameAllay=[]
-      state.chartScore[1].skills.forEach((filter)=>{
+      state.chartScore[2].skills.forEach((filter)=>{
         backNameAllay.push(filter.name)
       })
       return backNameAllay
     },
     devName(state){
       const devNameAllay=[]
-      state.chartScore[2].skills.forEach((filter)=>{
+      state.chartScore[0].skills.forEach((filter)=>{
         devNameAllay.push(filter.name)
       })
       return devNameAllay

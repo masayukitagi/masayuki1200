@@ -15,29 +15,25 @@
       <li id="drawerMenuItem">
         <a
           class="drawerMenuItemLink"
-          href=".mainSection"
-          @click="clickSmoothScroll1()"
+          @click="clickSmoothScroll('.upToMain')"
         >Home</a>
       </li>
       <li id="drawerMenuItem">
         <a
           class="drawerMenuItemLink"
-          href=".aboutSection"
-          @click="clickSmoothScroll2()"
+          @click="clickSmoothScroll('.upToAbout')"
         >About Me</a>
       </li>
       <li id="drawerMenuItem">
         <a
           class="drawerMenuItemLink"
-          href=".skillSection"
-          @click="clickSmoothScroll3()"
+          @click="clickSmoothScroll('.upToSkill')"
         >Skill Set</a>
       </li>
       <li id="drawerMenuItem">
         <a
           class="drawerMenuItemLink"
-          href=".visionSection"
-          @click="clickSmoothScroll4()"
+          @click="clickSmoothScroll('.upToVision')"
         >Vision</a>
       </li>
     </ul>
@@ -50,40 +46,10 @@ export default {
     closeMenu(){
       this.$emit('close')
     },
-    clickSmoothScroll1 () {
+    clickSmoothScroll (Scroll) {
       event.preventDefault()
       this.$SmoothScroll(
-        document.querySelector('.upToMain'),
-        400,
-        null,
-        null,
-        'y'
-      )
-    },
-    clickSmoothScroll2 () {
-      event.preventDefault()
-      this.$SmoothScroll(
-        document.querySelector('.upToAbout'),
-        400,
-        null,
-        null,
-        'y'
-      )
-    },
-    clickSmoothScroll3 () {
-      event.preventDefault()
-      this.$SmoothScroll(
-        document.querySelector('.upToSkill'),
-        400,
-        null,
-        null,
-        'y'
-      )
-    },
-    clickSmoothScroll4 () {
-      event.preventDefault()
-      this.$SmoothScroll(
-        document.querySelector('.upToVision'),
+        document.querySelector(Scroll),
         400,
         null,
         null,
